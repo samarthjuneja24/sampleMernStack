@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import Button from 'react-bootstrap/Button';
+var addMenu = [];
 class App extends Component {
 
   constructor(props) {
@@ -20,11 +21,27 @@ class App extends Component {
       });
   }
 
+  handleClick (e){
+    console.log(e.type);
+    addMenu = {
+        label: 'doSomething',
+        click: function() {
+            // doSomething
+        }
+    };
+}
+
+contextMenu(e) {
+    e.preventDefault();
+    addMenu.popup(e.clientX, e.clientY);
+}
+
   render() {
     return (
       <div class="container">
         <div class="panel panel-default">
           <div class="panel-heading">
+          <Button variant="primary" onClick={this.handleClick} onContextMenu={this.handleClick}>Primary</Button>
             <h3 class="panel-title">
               BOOK CATALOG
             </h3>

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import Button from 'react-bootstrap/Button';
+var addMenu;
 class Create extends Component {
 
   constructor() {
@@ -39,6 +40,7 @@ class Create extends Component {
       <div class="container">
         <div class="panel panel-default">
           <div class="panel-heading">
+            <Button variant="primary" onClick={this.handleClick} onContextMenu={this.contextMenu}>Primary</Button>
             <h3 class="panel-title">
               ADD BOOK
             </h3>
